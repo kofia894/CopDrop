@@ -10,14 +10,21 @@
 // }
 .sell-icon{
     color:green !important;
-    font:500px;
+    font-size:100px;
+    
 }
-.cart-icon{
+.bag-icon{
   color:green !important;
+  font-size:25px;
+  margin-right:15px;
 }
 .search-icon{
   color: dodgerblue !important;
 }
+
+.fav-icon{
+    color: rgb(255, 30, 30) !important;
+  }
 
 .ad-block2{
   margin-top: 0;
