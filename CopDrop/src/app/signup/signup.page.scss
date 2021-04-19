@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+
+ion-content{
+  --background: linear-gradient(180deg,  rgb(0, 119, 182) 36%, rgb(255, 255, 255) 36%);
+}
+
+img {
+    height: 200px;
+}
+
+.err {
+  color: red;
+  font-weight: bold;
+  text-align: left;
+}
+
+.welcome-header {
+    color: #fff;
+}
+
+strong{
+    font-size: large;
+}
+
+.form {
+    margin-top: 8vh;
+}
+
+button {
+    background-color: rgba(82,32,32,1);
+    border: 1px solid;
+    border-radius: 50px;
+    outline: none;
+    padding: 10px;
+    margin: 20px 0px;
+    width: 80%;
+    outline: none;
+}
+
+button:hover{
+    background-color: #fff;
+    color: rgba(82,32,32,1);
+    border: 1px solid #000;
+}
+
+button:active {
+    background-color: rgba(82,32,32,1);
+    outline: none;
+    color: #fff;
+}
+
+button:focus {
+    background-color: rgba(82,32,32,1);
+    outline: none;
+    color: #fff;
+}

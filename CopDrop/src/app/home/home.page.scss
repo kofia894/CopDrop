@@ -1,27 +1,59 @@
-#container {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@200&display=swap');
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-content{
+    display: grid;
+    font-family: 'Poppins', sans-serif;
+    --background: linear-gradient(180deg, rgba(255,255,255,1) 30%, rgb(0, 119, 182) 30%);
+}
+ion-button {
+  --background-color: rgb(3, 4, 94);
+  --background-hover:#fff;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.logo {
+    height: 300px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.welcome-header {
+    color: rgb(3, 4, 94);
+    font-weight: bolder;
+    font-size: larger;
 }
 
-#container a {
-  text-decoration: none;
+.header {
+    font-size: larger;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.err-message {
+    margin-top: 2vh;
+    color: rgb(255, 255, 255) !important;
+}
+
+ion-text {
+    color: #fff;
+}
+
+ion-item {
+    --color: #fff;
+    --background: rgba(0,0,0,0);
+}
+
+.heading {
+    text-decoration: line-through;
+}
+
+
+
+
+
+p {
+    color: #fff;
+}
+
+.login-error {
+  font-weight: bold;
+  color: red;
 }

@@ -1,20 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding ion-text-center">
+  <div class="welcome-header">CopDrop</div>
+  <img class="logo ion-padding" src="../../assets/img/blacksneak.png" alt="">
+  <div class="header ion-margin-down">Welcome ! <ion-text class="heading"></ion-text> </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-item>
+    <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Email</ion-label>
+    <ion-input [disabled]='isDisable' clearInput [(ngModel)]='email' style="font-family: 'Poppins', sans-serif;" placeholder="Enter Email"></ion-input>
+  </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item>
+    <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Password</ion-label>
+    <ion-input [disabled]='isDisable' clearInput [(ngModel)]='password' type="password" style="font-family: 'Poppins', sans-serif;" placeholder="Enter Password"></ion-input>
+  </ion-item>
+
+  <ion-button type="button"   class="ion-margin-top btn btn-primary">Sign In</ion-button>
+  
+  <!-- <p class="ion-margin-top ion-padding">HomePage<strong  routerLink="/home">here</strong></p> -->
+
+  <!-- <div class="err-message" *ngIf = 'attempts < 5 && isSuccess == false'>
+    <small>{{errMessage}}, {{ attempts }} attempts remaining</small>
+  </div> -->
+
+
+  <p class="ion-margin-top ion-padding-top login-error" *ngIf = 'attempts > 0 && isPasswordCorrect == false'>Password Incorrect</p>
+  <p class="ion-margin-top ion-padding">Need an account? Sign up <strong  routerLink="/signup">here</strong></p>
+  <p class="ion-margin-top ion-padding">Temporary to home <strong  routerLink="/mainpage">here</strong></p>
 </ion-content>

@@ -1,0 +1,76 @@
+<ion-header translucent="false">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <div>
+    <img class="logo ion-padding" src="../../assets/img/sneak6.png" alt="">
+    <div class="welcome-header">Create Your <strong>Cop</strong> Account</div>
+  </div>
+
+
+  <div class="ion-margin-top form">
+    <ion-item class="">
+      <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">First Name</ion-label>
+      <ion-input [(ngModel)]="firstname" minlength="2" style="font-family: 'Poppins', sans-serif;"></ion-input>
+    </ion-item>
+
+    <ion-item class="">
+      <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Last Name</ion-label>
+      <ion-input [(ngModel)]="lastname" minlength="2"  style="font-family: 'Poppins', sans-serif;"></ion-input>
+    </ion-item>
+
+    <ion-item class="">
+      <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">User Name</ion-label>
+      <ion-input [(ngModel)]="username" minlength="2" style="font-family: 'Poppins', sans-serif;"></ion-input>
+    </ion-item>
+
+    <ion-item class="">
+      <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Password</ion-label>
+      <ion-input type="password" style="font-family: 'Poppins', sans-serif;" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <ion-item class="">
+      <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Re-Enter Password</ion-label>
+      <ion-input [(ngModel)]="repassword" type="password" style="font-family: 'Poppins', sans-serif;"></ion-input>
+    </ion-item>
+
+    <ion-item class="">
+      <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Email</ion-label>
+      <ion-input type="email" style="font-family: 'Poppins', sans-serif;" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item class="">
+      <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Telephone</ion-label>
+      <ion-input [(ngModel)]="telephone" type="telephone" style="font-family: 'Poppins', sans-serif;"></ion-input>
+    </ion-item>
+
+    <ion-item class="">
+      <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Location</ion-label>
+      <ion-input [(ngModel)]="location" style="font-family: 'Poppins', sans-serif;"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top">
+      <ion-checkbox checked="false"></ion-checkbox>
+      <ion-text style="font-family: 'Poppins', sans-serif;" slot="end"><small>By signing up I agree to the <a href="">terms of services and privacy policy</a></small></ion-text>
+    </ion-item>
+
+    <!-- <button type="submit" class="ion-margin-top btn btn-primary" (click)="createAccount()">Create Account</button> -->
+    <ion-button type="button"   class="ion-margin-top btn btn-primary">Create account</ion-button>
+
+    <ul>
+      <li class="err" *ngIf = "firstname_valid == false && attempts > 0">First name must be between 3 and 20 characters</li>
+      <li class="err" *ngIf = "lastname_valid == false && attempts > 0">Last name must be between 3 and 20 characters</li>
+      <li class="err" *ngIf = "email_valid == false && attempts > 0">Enter valid email</li>
+      <li class="err" *ngIf = "password_valid == false && attempts > 0">Password must between 6 to 15 character with at least one lower case, upper case and number</li>
+      <li class="err" *ngIf = "repassword_valid == false && attempts > 0">Password mismatch, retype password to confirm</li>
+      <li class="err" *ngIf = "telephone_valid == false && attempts > 0">Telephone must be exactly 10 characters</li>
+      <li class="err" *ngIf = "location_valid == false && attempts > 0">Location must have above 3 characters</li>
+    </ul>
+  </div>
+
+</ion-content>
