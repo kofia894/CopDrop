@@ -14,6 +14,7 @@ export class ModalSettingsComponent implements OnInit {
 
   constructor( private modalCtrl: ModalController) { }
 
+    imgURL;
   ngOnInit() {}
 
   dismiss(){
@@ -23,6 +24,10 @@ export class ModalSettingsComponent implements OnInit {
     "fromModal":"data"
     })
 
+  }
+
+  getCamera(){
+    
   }
 
 }

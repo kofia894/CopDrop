@@ -1,5 +1,7 @@
 {
   "name": "CopDrop",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

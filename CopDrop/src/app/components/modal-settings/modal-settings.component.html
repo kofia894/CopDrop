@@ -56,8 +56,11 @@
 
   <div class="img">
     <p class="ion-text-center"> Images </p>
-
-    <ion-icon class = "sell-icon"  name="add-circle"></ion-icon>
+    <img src="{{imgURL}}" height="200" width="200" />
+    <ion-button (click)= "getCamera()" class="addbutton" size="large" fill="clear"> 
+      <ion-icon class = "sell-icon"  name="add-circle"></ion-icon> 
+    </ion-button>
+    
     <p class="ion-text-center">Add Photo(s)</p>
 
   </div>
