@@ -5,30 +5,71 @@
   font-family: 'Poppins', sans-serif;
 }
 
-// ion-content{
- 
-// }
-// ion-icon{
-//     font-size:90px;
-// }
-.sell-icon{
-    color:green !important;
-    font-size:106px;
-    // margin-bottom: 15px;
-    // padding-bottom: 15px;
-    
+.container{
+  background-color:rgb(0, 119, 182)  ;
+  height:25%;
+  border-bottom-left-radius: 5%;
+  border-bottom-right-radius: 5%;
+  
 }
+
+ion-icon{
+  font-size: 32px;
+  padding-bottom: 0;
+}
+
+
+
+ion-col{
+  margin-bottom: 50px;
+  
+}
+.nike-icon{
+     color:black !important;
+     font-size: 64px;
+     margin-bottom: 5px;
+ 
+}
+
+.adidas-icon{
+  color:black !important;
+  font-size: 64px;
+
+}
+
+.puma-icon{
+  color:black !important;
+  font-size: 64px;
+
+}
+
+.ua-icon{
+  font-size: 64px;
+
+}
+
+.conv-icon{
+  font-size: 64px;
+}
+
+.nb-icon{
+  font-size: 64px;
+}
+
+
 .bag-icon{
-  color:green !important;
+  // color:green !important;
   font-size:25px;
   margin-right:15px;
 }
-.search-icon{
-  color: dodgerblue !important;
+.sell-icon{
+    color:green !important;
+    font-size:106px;
+ 
 }
 
 .fav-icon{
-    color: rgb(185, 163, 39) !important;
+    // color: rgb(185, 163, 39) !important;
   }
 
 .ad-block2{

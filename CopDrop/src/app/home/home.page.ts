@@ -16,7 +16,7 @@ export class HomePage {
   isDisable:boolean = false;
   errMessage:string = '';
 
-  constructor(public afAuth: AngularFireAuth, private auth: AngularFireAuth) {}
+  constructor(private auth: AngularFireAuth) {}
 
   ngOnInit(){
     this.auth.onAuthStateChanged(user => {
@@ -25,6 +25,8 @@ export class HomePage {
       }
     });
 
+    console.log(this.auth)
+
   }
 
   login() {
@@ -32,7 +34,7 @@ export class HomePage {
       this.auth.signInWithEmailAndPassword(this.email, this.password)
       .then(() => {
         this.isSuccess = true;
-        location.href = '/home.page';
+        location.href = '/mainpage';
       })
       .catch(err => {
         this.attempts = this.attempts - 1;

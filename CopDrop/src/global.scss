@@ -24,3 +24,18 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-toolbar,
+.menu-header > ion-toolbar,
+.modal-top{
+    --background:rgb(0, 119, 182);
+    --color:white;
+    padding: 0px;
+}
+.my-modal-css .modal-wrapper{
+    --height:95%;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    
+
+}

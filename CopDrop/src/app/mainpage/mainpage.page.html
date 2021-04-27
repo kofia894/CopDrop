@@ -1,43 +1,103 @@
 <ion-header translucent="false">
-  <ion-toolbar>
-    <ion-buttons tappable slot="end">
-      <ion-icon class = "bag-icon" name="bag-handle-outline"></ion-icon> 
-    </ion-buttons>
-    <ion-title class= "text-center">Home</ion-title>
-  </ion-toolbar>
+ 
  
 </ion-header>
 
 <ion-content class="ion-text-center">
+  <div class="container">
+    
+    
+  </div>
  
+  <div class="searchicons">
+    <ion-grid>
 
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+           <!-- <p>Nike</p> -->
+          <ion-button tappable ng-click="nextpage()"  fill="clear">
+            <ion-icon class="nike-icon"  src="../../assets/icon/Logo_NIKE.svg"></ion-icon>
+            <!-- <img tappable  class ="nike-button" src="../../assets/img/nike-filled.png" alt="" > <br> -->
+          </ion-button>
+          <p>Nike</p>
+        </ion-col>
+        
+        
+        <ion-col>
+
+          <ion-button routerLink="/search-results" size = "large" fill="clear">
+            <ion-icon class="adidas-icon" src="../../assets/icon/Adidas_Logo.svg"></ion-icon>
+          </ion-button>
+
+          <p>Adidas</p>
+
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-button size = "large" fill="clear">
+            <ion-icon class="ua-icon" src="../../assets/icon/Under_armour_logo.svg"></ion-icon>
+          </ion-button>
+          <p>Under Armour</p>
+        </ion-col>
+        
+        <ion-col>
+          <ion-button size  = "large" fill="clear">
+            <ion-icon class="nb-icon"  src="../../assets/icon/New_Balance_logo.svg"></ion-icon>
+          </ion-button>
+          <p>New Balance</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-button size = "large" fill="clear">
+            <ion-icon  class="puma-icon"  src="../../assets/icon/puma-logo.svg"></ion-icon>
+          </ion-button>
+          
+          <p>Puma</p>
+        </ion-col>
+       
+        <ion-col>
+          <ion-button size = "large" fill="clear">
+            <ion-icon class="conv-icon" src="../../assets/icon/Converse_logo.svg"></ion-icon>
+          </ion-button>
+          
+          <p>Converse</p>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </div>
 
   <div >
     <ion-tabs>
       <ion-tab-bar slot="bottom">
         <ion-tab-button >
-          <ion-icon class="search-icon" name="search"></ion-icon>
-          <ion-label>Search</ion-label>
+          <ion-icon class="home-icon" defaultHref="/mainpage" name="home"></ion-icon>
+          <!-- <ion-label>Search</ion-label> -->
         </ion-tab-button>
 
         <ion-tab-button >
-          <ion-icon class = "fav-icon" name="star-outline"></ion-icon>
-          <ion-label>Favourites</ion-label>
+          <ion-icon class = "fav-icon" name="star"></ion-icon>
+          <!-- <ion-label>Favourites</ion-label> -->
         </ion-tab-button>
   
-        <ion-tab-button >
+        <ion-tab-button (click)="openModal()" >
           <ion-icon class = "sell-icon"  name="add-circle"></ion-icon>
-          <ion-label></ion-label>
+          <!-- <ion-label></ion-label> -->
         </ion-tab-button>
   
         <ion-tab-button >
-          <ion-icon name="person"></ion-icon>
-          <ion-label>Profile</ion-label>
+          <ion-icon routerLink = "/profile" name="person"></ion-icon>
+          <!-- <ion-label>Profile</ion-label> -->
         </ion-tab-button>
   
         <ion-tab-button >
           <ion-icon name="log-out-outline"></ion-icon>
-          <ion-label>LogOut</ion-label>
+          <!-- <ion-label>LogOut</ion-label> -->
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>

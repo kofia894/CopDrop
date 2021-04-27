@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons class="modal-top" slot="end">
+        <ion-button (click)="dismiss()">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+          
+        </ion-button>
+      </ion-buttons>
+      <h6> Advertise</h6>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  
+  <div class="brand">
+    <ion-list>
+      <ion-radio-group value="brand">
+        <ion-list-header>
+          <ion-label>Brand</ion-label>
+        </ion-list-header>
+    
+        <ion-item>
+          <ion-label>Nike</ion-label>
+          <ion-radio slot="start" value="nk"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Adidas</ion-label>
+          <ion-radio slot="start" value="ad"></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>Under armour</ion-label>
+          <ion-radio slot="start" value="ua"></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>New Balance</ion-label>
+          <ion-radio slot="start" value="nb"></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Puma</ion-label>
+          <ion-radio slot="start" value="pm"></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Converse</ion-label>
+          <ion-radio slot="start" value="cv"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  
+  </div>
+
+  <div class="img">
+    <p class="ion-text-center"> Images </p>
+
+    <ion-icon class = "sell-icon"  name="add-circle"></ion-icon>
+    <p class="ion-text-center">Add Photo(s)</p>
+
+  </div>
+
+  <div class="shoe-size">
+    <ion-item>
+      <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Size</ion-label><br>
+      <ion-input type="number" value=""></ion-input>
+    </ion-item>
+    
+  </div>
+
+  <div class="description">
+    <ion-item>
+      <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Description</ion-label>
+      <ion-input [disabled]='isDisable' clearInput [(ngModel)]='desc' style="font-family: 'Poppins', sans-serif;" placeholder="Description"></ion-input>
+    </ion-item>
+  </div>
+  
+</ion-content>
+
