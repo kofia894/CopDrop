@@ -21,7 +21,7 @@ export class HomePage {
   ngOnInit(){
     this.auth.onAuthStateChanged(user => {
       if(user) {
-        location.href = '/home.page';
+        location.href = '/mainpage';
       }
     });
 

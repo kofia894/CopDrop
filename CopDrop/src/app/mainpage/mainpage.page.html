@@ -3,8 +3,9 @@
     
     <div slot= "end" >
       <ion-tab-button tappable routerLink="/cart">
-        <ion-badge ></ion-badge>
+        
         <ion-icon name="bag-handle-outline" routerLink="/cart"></ion-icon>
+        <!-- *ngIf="cart.length > 0">{{cart.length}} > -->
         
       </ion-tab-button>
       
@@ -16,7 +17,7 @@
 
 <ion-content class="ion-text-center">
   <div class="container">
-    
+    <h1> Main PAge</h1>
     
   </div>
 
@@ -35,7 +36,7 @@
           <!-- <ion-label>Favourites</ion-label> -->
         </ion-tab-button>
   
-        <ion-tab-button (click)="openModal()" >
+        <ion-tab-button (click)="openPage" routerLink="/advert" >
           <ion-icon class = "sell-icon"  name="add-circle"></ion-icon>
           <!-- <ion-label></ion-label> -->
         </ion-tab-button>
@@ -46,7 +47,7 @@
         </ion-tab-button>
   
         <ion-tab-button >
-          <ion-icon name="log-out-outline"></ion-icon>
+          <ion-icon (click) = "logOut()" name="log-out-outline"></ion-icon>
           <!-- <ion-label>LogOut</ion-label> -->
         </ion-tab-button>
       </ion-tab-bar>

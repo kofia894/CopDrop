@@ -1,20 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+
 import { Camera, DestinationType} from '@ionic-native/camera/ngx';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { sanitizeIdentifier } from '@angular/compiler';
+import { AlertController } from '@ionic/angular'
 
 @Component({
-  selector: 'app-modal-settings',
-  templateUrl: './modal-settings.component.html',
-  styleUrls: ['./modal-settings.component.scss'],
+  selector: 'app-advert',
+  templateUrl: './advert.page.html',
+  styleUrls: ['./advert.page.scss'],
 })
-export class ModalSettingsComponent implements OnInit {
+export class AdvertPage implements OnInit {
 
-// @Input() name:string;  
-// @Input() id:string;
-
-brand:string = "";
+  brand:string = "";
 size:string="";
 desc:string="";
 
@@ -24,40 +22,48 @@ desc:string="";
 
 
 
-  constructor( private modalCtrl: ModalController, private camera: Camera) { }
+  constructor(private firestore:AngularFirestore, private camera: Camera,public alertController: AlertController) { }
 
   imgURL;
 
   ngOnInit() {}
 
-  dismiss(){
-    this.modalCtrl.dismiss(
-    )
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      // cssClass: 'my-custom-class',
+      header: 'Advert',
+      message: 'Your Shoe is now on sale ! ',
+      buttons: ['OK']
+    });
 
+    await alert.present();
   }
 
   Save(){
-    // this.modalCtrl.dismiss({
-    //   // "Brand":this.brand,
-    //   // "Ssize":this.size,
-    //   // "Descp":this.desc
-      
-    // // this.firestore.collection("Shoes").add(Shoe)
-    // })
-    
-
     let Shoe = {
       brand:this.brand,
       description:this.desc,
       size:this.size,
-      
-      
     }
+    this.firestore.collection("Shoes").add(Shoe)
+    .then(()=> {
+      
+      
+      console.log("Done");
+      
+      location.href = '/mainpage';
+
+    })
+
+    this.presentAlert()
+  
 
     console.log(Shoe)
     // console.log(this.Brand,this.Ssize,this.Descp)
 
   }
+
+ 
   
   
 

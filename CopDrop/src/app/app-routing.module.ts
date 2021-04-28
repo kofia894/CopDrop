@@ -37,6 +37,14 @@ const routes: Routes = [
     path: 'search',
     loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
   },
+  {
+    path: 'search-results',
+    loadChildren: () => import('./search-results/search-results.module').then( m => m.SearchResultsPageModule)
+  },
+  {
+    path: 'advert',
+    loadChildren: () => import('./advert/advert.module').then( m => m.AdvertPageModule)
+  },
 ];
 
 @NgModule({

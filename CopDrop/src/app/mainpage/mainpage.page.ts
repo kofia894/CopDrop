@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { IonRouterOutlet, ModalController } from '@ionic/angular';
 import {ModalSettingsComponent} from '../components/modal-settings/modal-settings.component'
+import {CartService} from '../cart.service'
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-mainpage',
@@ -10,7 +12,7 @@ import {ModalSettingsComponent} from '../components/modal-settings/modal-setting
 })
 export class MainpagePage implements OnInit {
 fromModal:any;
-  constructor(private modalCtrl: ModalController, private routerOutlet:IonRouterOutlet) { }
+  constructor(private modalCtrl: ModalController, private routerOutlet:IonRouterOutlet,private auth: AngularFireAuth) { }
 
   ngOnInit() {
   }
@@ -18,10 +20,11 @@ fromModal:any;
   async openModal(){
     const modal = await this.modalCtrl.create({
       component: ModalSettingsComponent,
-      componentProps:{
-           "name": "CopDrop",
-           "id" : "final"
-      },
+      // componentProps:{
+      //      "Brand": "brand",
+      //      "Size" : "shoe-size",
+      //      "describe" : "description"
+      // },
       cssClass:'my-modal-css',
       backdropDismiss:true,
       presentingElement: await this.modalCtrl.getTop()
@@ -33,6 +36,13 @@ fromModal:any;
     })
    return await modal.present()
  
+  }
+
+  logOut() {
+    this.auth.signOut()
+      .then(() => {
+        location.href = "/home";
+      })
   }
 
  

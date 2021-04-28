@@ -3,10 +3,77 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="mainpage"></ion-back-button>
     </ion-buttons>
-    <ion-title>cart</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="cart">
+  
+    <ion-slides [options]="sliderConfig">
+      <ion-slide *ngFor="let item of selectedItems">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                <img src="{{item.image}}">
+              </ion-card-title>
+            </ion-card-header>
+  
+            <ion-card-content>
+              <h4>{{item.count}} x {{item.name}} - {{item.price | currency: 'GHS':'symbol'}}</h4>
+             
+            </ion-card-content>
+          </ion-card>
+      </ion-slide>
+  
+    </ion-slides>
 
+    
+   </div>
+
+   
+   
+  <div class="container" >
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h4 >Total : <span slot ="end">{{total |currency: 'GHS':'symbol' }}</span></h4>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col>
+          <ion-button expand="full" color="danger"  (click)="clearCart()">Clear Cart</ion-button>
+        </ion-col>
+      </ion-row>
+<!-- 
+      <ion-row>
+        <ion-col>
+          <ion-button routerLink="/location" expand="block" shape="round" >Set Delivery location</ion-button>
+        </ion-col>
+      </ion-row> -->
+
+      <!-- <ion-row>
+        <ion-col>
+          <ion-button  expand="block" shape="round" >Pay with Card</ion-button>
+        </ion-col>
+      </ion-row> -->
+
+      <ion-row>
+        <ion-col>
+          <ion-button  expand="block" routerLink="/cardpay" shape="round">Pay with Card</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button routerLink="/location"  expand="block" color="success" >Pay on delivery</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+    
+    
+ 
+      
+    
+
+   </div>
+   
 </ion-content>

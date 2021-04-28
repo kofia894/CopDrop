@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="mainpage"></ion-back-button>
+    </ion-buttons>
+    <ion-title>search-results</ion-title>
+    <div slot= "end" >
+      <ion-tab-button tappable routerLink="/cart">
+        <ion-badge *ngIf="cart.length > 0">{{cart.length}} ></ion-badge>
+        <ion-icon name="bag-handle-outline" routerLink="/cart"></ion-icon>
+        
+      </ion-tab-button>
+      
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div   *ngFor = "let cat of items"  >
+  
+    <ion-list>
+      <ion-item-sliding>
+       
+        <ion-item  *ngFor="let product of cat.products">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                <h4  class= "text-center">{{product.name}} - ${{product.price}}</h4>
+              </ion-card-title>
+            </ion-card-header>
+  
+            <ion-card-content>
+               <img class="cards" src="{{product.image}}">
+              <ion-button expand="full" (click)="addToCart(product)">Add to cart</ion-button>
+              <ion-button expand="full" (click)="addToFavourites(product)">Add to Favoruites</ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-item> 
+       
+      </ion-item-sliding>
+    
+  
+    </ion-list>
+  </div> 
+  
+
+</ion-content>
