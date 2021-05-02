@@ -14,19 +14,22 @@ export class CartPage implements OnInit {
     slidesPerView:1.2
 
   }
+
+  items=[];
   selectedItems = [];
   total = 0;
   constructor(private cartService: CartService) { }
-
+    
   ngOnInit() {
     let items = this.cartService.getCart();
+    // items = this.cartService.getCart();
     let selected = {};
 
     for (let obj of items){
-      if(selected[obj.id]){
-        selected[obj.id].count++;
+      if(selected[obj.name]){
+        selected[obj.name].count++;
       }else{
-        selected[obj.id] = {...obj, count: 1};
+        selected[obj.name] = {...obj, count: 1};
         // ...obj stands for the name,id and price
         // count:1 = giving it a count of 1
       }
@@ -34,6 +37,7 @@ export class CartPage implements OnInit {
     this.selectedItems = Object.keys(selected).map(key => selected [key])
     this.total = this.selectedItems.reduce((a,b) => a + (b.count * b.price), 0);
   }
+  
 
   clearCart(){
     this.cartService.clearCart();

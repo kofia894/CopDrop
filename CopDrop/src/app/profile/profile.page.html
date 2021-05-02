@@ -14,13 +14,13 @@
     <ion-grid>
       <ion-row class="ion-align-items-center">
         <ion-icon name="person-outline"></ion-icon>
-        <ion-col> <ion-input class="fn" value="First Name" disabled style="font-family: 'Poppins', sans-serif;" placeholder="First Name"></ion-input> </ion-col>
-        <ion-col> <ion-input class="ln" value="Last Name" disabled style="font-family: 'Poppins', sans-serif;" placeholder="Last Name"></ion-input> </ion-col>
+        <ion-col><h6><ion-input class="fn" value="First Name" [value]="loggedUser.firstname" disabled style="font-family: 'Poppins', sans-serif;" placeholder="First Name"></ion-input></h6>  </ion-col>
+        <ion-col> <h6><ion-input class="ln" value="Last Name" [value]="loggedUser.lastname" disabled style="font-family: 'Poppins', sans-serif;" placeholder="Last Name"> </ion-input> </h6></ion-col>
      
       </ion-row>
 
       <ion-row class="ion-align-items-center rw2">
-        <ion-col> <ion-input class="em" value="Email" disabled style="font-family: 'Poppins', sans-serif;" placeholder="Email"></ion-input> </ion-col>
+        <ion-col class="email"> <h6><ion-input class="em" value="Email" [value]="loggedUser.email" disabled style="font-family: 'Poppins', sans-serif;" placeholder="Email"></ion-input> </h6></ion-col>
       </ion-row>
       
     </ion-grid>
@@ -30,6 +30,37 @@
   </div>
   
   <div class="adverts">
+    <p>Personal Adverts</p>
+    <div   *ngFor = "let item of data"  >
+  
+      <ion-list>
+        <ion-item-sliding>
+         
+          <ion-item *ngIf ="item.name" >
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>
+                  <img class="cards" src="https://via.placeholder.com/300x300">
+                </ion-card-title>
+              </ion-card-header>
+
+              <h4  class= "text-center">Brand : {{item.brand}} <br>
+                                        Size:{{item.size}} <br>
+                                        Description:{{item.description}} <br>
+                                        Price: GHS{{item.price}} <br>
+                                      </h4>
+    
+              <ion-card-content>
+                 
+              </ion-card-content>
+            </ion-card>
+          </ion-item> 
+         
+        </ion-item-sliding>
+      
+    
+      </ion-list>
+    </div> 
 
   </div>
 

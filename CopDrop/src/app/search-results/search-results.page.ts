@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
-import {FavouritesService} from '../favourites.service'
+
+import { AngularFirestore } from '@angular/fire/firestore';
+
+import {SearchService} from '../search.service'
+
+
+
 
 @Component({
   selector: 'app-search-results',
@@ -10,34 +16,57 @@ import {FavouritesService} from '../favourites.service'
 })
 export class SearchResultsPage implements OnInit {
 
+  shoes = [];
+  
   cart = [];
   favourites = [];
   items = [];
   items2 = [];
+  brand:any;
+  
 
-  sliderConfig = {
+  slideOpts = {
+    spaceBetween:10,
+    centeredSlides: true,
     slidesPerView:1.6,
-    direction: 'vertical'
+    direction: 'horizontal'
     
+  };
 
-  }
-  constructor( private favouritesservice: FavouritesService, private cartservice: CartService, private router: Router ) { }
+
+  constructor(  private cartservice: CartService, private router: Router, 
+              private searchservice: SearchService, private firestore: AngularFirestore) { }
 
   ngOnInit() {
+
+    this.firestore.collection("Shoes").get().toPromise()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+          this.shoes.push(doc.data());
+
+          console.log(this.shoes);
+
+          
+      });
+    
+    });
+   
+    this.brand = this.searchservice.getBrand();
+
+
     this.cart = this.cartservice.getCart();
     this.items = this.cartservice.getProducts();
 
-    this.favourites = this.favouritesservice.getFavourites();
-    this.items2 = this.favouritesservice.getFavouritesData();
+   
   }
 
   addToCart(product){
     this.cartservice.addProduct(product);
   }
 
-  addToFavourites(product){
-    this.favouritesservice.addFavourite(product);
-  }
+ 
 
   openCart() {
     this.router.navigate(['cart']);
@@ -46,5 +75,7 @@ export class SearchResultsPage implements OnInit {
   openfavourites() {
     this.router.navigate(['favourites']);
   }
+
+  
 
 }

@@ -1,6 +1,6 @@
 import { config } from "rxjs"
 
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyD7AJ25iVCn5f6TLE8nV20y7HQtREhE6kc",
     authDomain: "copdrop-f2bdd.firebaseapp.com",
     projectId: "copdrop-f2bdd",

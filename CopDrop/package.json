@@ -20,9 +20,12 @@
     "@angular/platform-browser": "~11.2.0",
     "@angular/platform-browser-dynamic": "~11.2.0",
     "@angular/router": "~11.2.0",
+    "@ionic-native/call-number": "^5.32.1",
     "@ionic-native/camera": "^5.32.1",
     "@ionic/angular": "^5.5.2",
+    "call-number": "^1.0.1",
     "cordova-android": "9.1.0",
+    "cordova-browser": "6.0.0",
     "firebase": "^8.4.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
@@ -78,10 +81,12 @@
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "mx.ferreyra.callnumber": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "browser"
     ]
   }
 }

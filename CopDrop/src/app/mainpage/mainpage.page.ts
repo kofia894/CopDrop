@@ -4,6 +4,7 @@ import { IonRouterOutlet, ModalController } from '@ionic/angular';
 import {ModalSettingsComponent} from '../components/modal-settings/modal-settings.component'
 import {CartService} from '../cart.service'
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-mainpage',
@@ -11,10 +12,42 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./mainpage.page.scss'],
 })
 export class MainpagePage implements OnInit {
+  slideOpts = {
+    spaceBetween:10,
+    centeredSlides: true,
+    slidesPerView:1.6,
+    direction: 'horizontal'
+    
+  };
 fromModal:any;
-  constructor(private modalCtrl: ModalController, private routerOutlet:IonRouterOutlet,private auth: AngularFireAuth) { }
+  constructor(private modalCtrl: ModalController, private routerOutlet:IonRouterOutlet,private auth: AngularFireAuth,private firestore:AngularFirestore) { }
+
+  private data = [
+    {
+     
+
+    }
+
+   
+   
+  ]
+
+  
 
   ngOnInit() {
+    this.firestore.collection("Shoes").get().toPromise()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+          this.data.push(doc.data());
+
+          console.log(this.data);
+
+          
+      });
+    
+    });
   }
 
   async openModal(){

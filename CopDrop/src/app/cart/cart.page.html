@@ -7,10 +7,10 @@
 </ion-header>
 
 <ion-content>
-  <div class="cart">
+  <div class="cart" *ngFor="let item of selectedItems">
   
     <ion-slides [options]="sliderConfig">
-      <ion-slide *ngFor="let item of selectedItems">
+      <ion-slide >
           <ion-card>
             <ion-card-header>
               <ion-card-title>
@@ -19,7 +19,7 @@
             </ion-card-header>
   
             <ion-card-content>
-              <h4>{{item.count}} x {{item.name}} - {{item.price | currency: 'GHS':'symbol'}}</h4>
+              <h4>{{item.brand}} x {{item.size}} - {{item.price | currency: 'GHS':'symbol'}}</h4>
              
             </ion-card-content>
           </ion-card>
@@ -34,11 +34,6 @@
    
   <div class="container" >
     <ion-grid>
-      <ion-row>
-        <ion-col>
-          <h4 >Total : <span slot ="end">{{total |currency: 'GHS':'symbol' }}</span></h4>
-        </ion-col>
-      </ion-row>
       
       <ion-row>
         <ion-col>

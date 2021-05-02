@@ -15,6 +15,8 @@ export class HomePage {
   attempts:number = 5;
   isDisable:boolean = false;
   errMessage:string = '';
+  static loading: any;
+  static URL: any;
 
   constructor(private auth: AngularFireAuth) {}
 

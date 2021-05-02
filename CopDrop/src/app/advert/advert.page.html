@@ -64,10 +64,11 @@
 
     <div class="img">
       <p class="ion-text-center"> Images </p>
-      <img class="img-url" src="{{imgURL}}" height="200" width="200" />
-      <ion-button (click)= "getCamera()" class="addbutton" size="large" fill="clear"> 
+      <!-- <img class="img-url" src="{{imgURL}}" height="300" width="300" /> -->
+      <ion-button (click)= "takeImage()" class="addbutton" size="large" fill="clear"> 
         <ion-icon class = "sell-icon"  name="add-circle"></ion-icon> 
       </ion-button>
+      <img [src]="imgURL" class="img-url" />
       
       <p class="ion-text-center">Add Photo(s)</p>
 
@@ -81,12 +82,52 @@
       
     </div>
 
+    <div class="price">
+      <ion-item>
+        <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Price</ion-label><br>
+        <ion-input type="number" [(ngModel)]="price" value=""></ion-input>
+      </ion-item>
+      
+    </div>
+
+    <div class="contact">
+      <ion-item>
+        <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Contact</ion-label><br>
+        <ion-input type="tel" [(ngModel)]="contact" value=""></ion-input>
+      </ion-item>
+      
+    </div>
+
+    <div class="location">
+      <ion-item>
+        <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Location</ion-label><br>
+        <ion-input  [(ngModel)]="location" value=""></ion-input>
+      </ion-item>
+      
+    </div>
+
+    <div class="Name">
+      <ion-item>
+        <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Name</ion-label>
+        <ion-input [disabled]='isDisable' clearInput [(ngModel)]='name' style="font-family: 'Poppins', sans-serif;" placeholder="Description"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="SName">
+      <ion-item>
+        <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Shoe Name</ion-label>
+        <ion-input [disabled]='isDisable' clearInput [(ngModel)]='shoename' style="font-family: 'Poppins', sans-serif;" placeholder="Description"></ion-input>
+      </ion-item>
+    </div>
+
     <div class="description">
       <ion-item>
         <ion-label style="font-family: 'Poppins', sans-serif;" position="floating">Description</ion-label>
         <ion-input [disabled]='isDisable' clearInput [(ngModel)]='desc' style="font-family: 'Poppins', sans-serif;" placeholder="Description"></ion-input>
       </ion-item>
     </div>
+
+
   </div>
   
 </ion-content>

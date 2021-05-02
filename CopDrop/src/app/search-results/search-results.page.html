@@ -3,45 +3,53 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="mainpage"></ion-back-button>
     </ion-buttons>
-    <ion-title>search-results</ion-title>
-    <div slot= "end" >
-      <ion-tab-button tappable routerLink="/cart">
-        <ion-badge *ngIf="cart.length > 0">{{cart.length}} ></ion-badge>
-        <ion-icon name="bag-handle-outline" routerLink="/cart"></ion-icon>
-        
-      </ion-tab-button>
-      
-    </div>
+    <ion-title class="text-center">Results</ion-title>
+ 
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <div   *ngFor = "let cat of items"  >
+  <div   *ngFor = "let shoe of shoes"  >
   
     <ion-list>
-      <ion-item-sliding>
+      <ion-item-sliding >
        
-        <ion-item  *ngFor="let product of cat.products">
+        <ion-item  *ngIf="shoe.brand == brand">
           <ion-card>
             <ion-card-header>
               <ion-card-title>
-                <h4  class= "text-center">{{product.name}} - ${{product.price}}</h4>
+                <img class="cards" src="https://via.placeholder.com/300x300">
+                
               </ion-card-title>
             </ion-card-header>
   
             <ion-card-content>
-               <img class="cards" src="{{product.image}}">
-              <ion-button expand="full" (click)="addToCart(product)">Add to cart</ion-button>
-              <ion-button expand="full" (click)="addToFavourites(product)">Add to Favoruites</ion-button>
+
+              <h4  class= "text-center">
+                <ion-grid>
+                  <ion-row class="ion-align-self-center">
+                    <ion-col>{{shoe.name}} <br> {{shoe.brand}} <br> {{shoe.ShoeName}} </ion-col>
+                    <ion-col> Size: {{shoe.size}} <br> GHS{{shoe.price}} <br> {{shoe.contact}}</ion-col>
+                
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>{{shoe.location}}</ion-col>
+                    <ion-col>  {{shoe.description}}</ion-col>
+                  </ion-row>
+                </ion-grid>
+
+              </h4>
+
             </ion-card-content>
           </ion-card>
         </ion-item> 
        
-      </ion-item-sliding>
-    
+      </ion-item-sliding >
+   
   
     </ion-list>
+    <!-- <h4 *ngIf="shoe.brand != brand"> Nothing to see here</h4>  -->
   </div> 
   
 

@@ -1,25 +1,55 @@
 <ion-header translucent="false">
   <ion-toolbar>
     
-    <div slot= "end" >
-      <ion-tab-button tappable routerLink="/cart">
-        
-        <ion-icon name="bag-handle-outline" routerLink="/cart"></ion-icon>
-        <!-- *ngIf="cart.length > 0">{{cart.length}} > -->
-        
-      </ion-tab-button>
-      
-    </div>
+
   </ion-toolbar>
  
  
 </ion-header>
 
 <ion-content class="ion-text-center">
-  <div class="container">
-    <h1> Main PAge</h1>
+
+
+
+  <div class="mainholder">
+    <div class="img">
+      <img src="../../assets/img/holdsneak.jpg" alt="">
+    </div>
     
   </div>
+<!-- 
+  <div *ngFor = "let item of data" class="ad-slides" >
+
+    <ion-list>
+      <ion-item-sliding >
+
+   
+      <ion-item *ngIf ="item.name">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                <img class="cards" src="https://via.placeholder.com/100x100">
+                
+              </ion-card-title>
+            </ion-card-header>
+  
+            <ion-card-content>
+              <h4  class= "text-center">
+                Shoe : {{item.ShoeName}} -- Price: GHS{{item.price}} 
+ 
+              </h4>
+            
+            </ion-card-content>
+          </ion-card>
+      </ion-item>
+  
+    </ion-item-sliding >
+   
+  
+  </ion-list>
+   </div> -->
+
+   
 
 
   <div >
@@ -29,11 +59,6 @@
           <ion-icon name="search-outline" routerLink="/search"></ion-icon>
           <!-- <ion-icon class="home-icon" defaultHref="/mainpage" name="home"></ion-icon> -->
           <!-- <ion-label>Search</ion-label> -->
-        </ion-tab-button>
-
-        <ion-tab-button  >
-          <ion-icon class = "fav-icon" name="star" routerLink="/favourites"></ion-icon>
-          <!-- <ion-label>Favourites</ion-label> -->
         </ion-tab-button>
   
         <ion-tab-button (click)="openPage" routerLink="/advert" >

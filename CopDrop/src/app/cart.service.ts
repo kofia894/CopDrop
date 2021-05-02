@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -6,14 +7,7 @@ import { Injectable } from '@angular/core';
 export class CartService {
   private data = [
     {
-      category: 'breakfast',
-      expanded: true,
-      products: [
-        { id:0, name: 'oatmeal', price: '8'},
-        { id:1, name: 'cereal', price: '5'},
-        { id:2, name: 'pancakes', price: '9'},
-        { id:3, name: 'waffles', price: '7'}
-      ]
+     
 
     }
 
@@ -23,7 +17,24 @@ export class CartService {
 
   private cart = [];
 
-  constructor() { }
+  constructor(private firestore:AngularFirestore) { }
+
+  ngOnInit() {
+
+    this.firestore.collection("Shoes").get().toPromise()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+          this.data.push(doc.data());
+
+          console.log(this.data);
+
+          
+      });
+    
+    });
+  }
 
   getProducts() {
     return this.data;
